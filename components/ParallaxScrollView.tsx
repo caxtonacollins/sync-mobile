@@ -12,16 +12,17 @@ import { useBottomTabOverflow } from '@/components/ui/TabBarBackground';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
 const HEADER_HEIGHT = 250;
+const BACKGROUND_COLOR = '#0E1032';
 
 type Props = PropsWithChildren<{
   headerImage: ReactElement;
-  headerBackgroundColor: { dark: string; light: string };
+  headerBackgroundColor?: { dark: string; light: string };
 }>;
 
 export default function ParallaxScrollView({
   children,
   headerImage,
-  headerBackgroundColor,
+  headerBackgroundColor = { dark: BACKGROUND_COLOR, light: BACKGROUND_COLOR },
 }: Props) {
   const colorScheme = useColorScheme() ?? 'light';
   const scrollRef = useAnimatedRef<Animated.ScrollView>();
@@ -68,15 +69,18 @@ export default function ParallaxScrollView({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: BACKGROUND_COLOR,
   },
   header: {
     height: HEADER_HEIGHT,
     overflow: 'hidden',
+    backgroundColor: BACKGROUND_COLOR,
   },
   content: {
     flex: 1,
     padding: 32,
     gap: 16,
     overflow: 'hidden',
+    backgroundColor: BACKGROUND_COLOR,
   },
 });
