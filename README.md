@@ -1,59 +1,50 @@
+# Welcome to your Expo app 👋
 
-# **Kryptosync Mobile** 📱  
-*React Native (Expo) Wallet with Biometric Auth*  
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-![image](https://github.com/user-attachments/assets/8f82ff24-97a4-4ca4-b5bd-94873f6afbad)
+## Get started
 
-## ✨ Mobile-Exclusive Features  
-✅ **Real-Time Overdrafts**  
-- Auto-convert crypto to fiat when balances are low  
-- Slippage-protected swaps via Pragma Oracle  
+1. Install dependencies
 
-✅ **Unified Dashboard**  
-- View combined fiat + crypto balances  
-- Transaction history with CSV export  
+   ```bash
+   npm install
+   ```
 
-✅ **Web3Auth Integration**  
-- Email/Social login + ArgentX/Braavos wallet connect
-🔒 **Biometric Auth**  
-- FaceID/TouchID secured transactions  
+2. Start the app
 
-📲 **Offline Mode**  
-- Cache recent transactions when offline  
+   ```bash
+    npx expo start
+   ```
 
-🔄 **Background Sync**  
-- StarkNet state updates via Expo TaskManager  
+In the output, you'll find options to open the app in a
 
-## 📱 Tech Stack  
-| Layer               | Technology           |
-|---------------------|----------------------|
-| **Framework**       | Expo SDK 49          |
-| **State**           | Jotai                |
-| **Blockchain**      | expo-starknet        |
-| **Auth**            | react-native-biometrics |
-| **UI**              | NativeWind           |
+- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-## 🚀 Quick Start  
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+
+## Get a fresh project
+
+When you're ready, run:
+
 ```bash
-# Fork the repo
-https://github.com/caxtonacollins/sync-mobile
-# Clone repo
-git clone https://github.com/yourorg/sync-mobile.git
-cd sync-mobile
-
-# Install
-yarn install
-
-# Start dev server
-expo start
+npm run reset-project
 ```
 
-## 📲 Build for Production  
-```bash
-# Android
-eas build --platform android
+This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-# iOS
-eas build --platform ios
-```
+## Learn more
 
+To learn more about developing your project with Expo, look at the following resources:
+
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+
+## Join the community
+
+Join our community of developers creating universal apps.
+
+- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
