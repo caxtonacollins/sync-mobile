@@ -9,8 +9,7 @@
       "distribution": "internal",
       "env": {
         "NODE_ENV": "development",
-        "EXPO_NO_TELEMETRY": "1",
-        "YARN_VERSION": "4.7.0"
+        "EXPO_NO_TELEMETRY": "1"
       }
     },
     "preview": {
@@ -22,15 +21,13 @@
       "credentialsSource": "remote",
       "env": {
         "NODE_ENV": "production",
-        "EXPO_NO_TELEMETRY": "1",
-        "YARN_VERSION": "4.7.0"
+        "EXPO_NO_TELEMETRY": "1"
       }
     },
     "production": {
       "env": {
         "NODE_ENV": "production",
-        "EXPO_NO_TELEMETRY": "1",
-        "YARN_VERSION": "4.7.0"
+        "EXPO_NO_TELEMETRY": "1"
       }
     }
   },
