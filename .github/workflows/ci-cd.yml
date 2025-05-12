@@ -25,11 +25,13 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: "yarn"
 
-      - name: Enable Corepack
-        run: corepack enable
+      - name: Enable and activate Corepack
+        run: |
+          corepack enable
+          corepack prepare yarn@${{ env.YARN_VERSION }} --activate
 
-      - name: Use Yarn ${{ env.YARN_VERSION }}
-        run: corepack prepare yarn@${{ env.YARN_VERSION }} --activate
+      - name: Check Yarn version
+        run: yarn --version
 
       - name: Install Dependencies
         run: yarn install --immutable
