@@ -11,10 +11,10 @@
     "web": "npx expo start --web",
     "test": "jest --watchAll",
     "lint": "npx expo lint",
-    "build:android-dev": "NODE_ENV=development eas build -p android  --local --profile development --output sync-dev.apk",
-    "build:android-prev": "NODE_ENV=production eas build -p android  --local --profile preview --output sync-preview.apk",
+    "build:android-dev": "NODE_ENV=development eas build -p android  --local --profile development --output .expo/sync-dev.apk",
+    "build:android-prev": "NODE_ENV=production eas build -p android  --local --profile preview --output .expo/sync-preview.apk",
     "build:ios": "NODE_ENV=production eas build --profile preview --platform ios",
-    "build:android-prod": "NODE_ENV=production npx expo prebuild --clean && eas build -p android --local --profile production --output sync-release.aab",
+    "build:android-prod": "NODE_ENV=production npx expo prebuild --clean && eas build -p android --local --profile production --output .expo/sync-release.aab",
     "build:development": "NODE_ENV=development eas build --profile development",
     "build:submit:production": "eas build --profile production --submit",
     "doctor": "npx expo-doctor"
