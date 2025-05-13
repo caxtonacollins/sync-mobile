@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "SYNC",
-    "slug": "sync-mobile",
+    "slug": "sync",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/sync.png",
@@ -14,13 +14,15 @@
       "resizeMode": "contain"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.strangee.sync"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/sync.png",
         "backgroundColor": "#0E1032"
-      }
+      },
+      "package": "com.strangee.sync"
     },
     "web": {
       "bundler": "metro",
@@ -32,6 +34,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "aa416c9c-f072-4dd7-864f-bd2362e3ec2c"
+      }
+    },
+    "owner": "strangee"
   }
 }
