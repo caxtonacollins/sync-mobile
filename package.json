@@ -9,7 +9,7 @@
     "android": "NODE_ENV=development npx expo run:android",
     "ios": "NODE_ENV=development npx expo run:ios",
     "web": "npx expo start --web",
-    "test": "jest --watchAll",
+    "test": "jest",
     "lint": "npx expo lint",
     "build:android-dev": "NODE_ENV=development eas build -p android  --local --profile development --output .expo/sync-dev.apk",
     "build:android-prev": "NODE_ENV=production eas build -p android  --local --profile preview --output .expo/sync-preview.apk",
