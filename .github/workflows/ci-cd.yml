@@ -25,8 +25,11 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: "yarn"
 
-      - name: Install Yarn
-        run: npm install -g yarn@${{ env.YARN_VERSION }}
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Set Yarn Version
+        run: corepack prepare yarn@${{ env.YARN_VERSION }} --activate
 
       - name: Install Dependencies
         run: yarn install --immutable
@@ -48,9 +51,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
+          cache: "yarn"
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Set Yarn Version
+        run: corepack prepare yarn@${{ env.YARN_VERSION }} --activate
+
+      - name: Install Dependencies
+        run: yarn install --immutable
 
       - name: Install EAS CLI
         run: npm install -g eas-cli
