@@ -47,7 +47,6 @@ export default function Autocarousel() {
               flatListRef.current?.scrollToIndex({ index: currentIndex + 1, animated: true})
             } else {
               clearInterval(interval);
-              showButton(true)
             }
           }
 
