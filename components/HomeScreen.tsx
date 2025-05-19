@@ -1,6 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
+
+// This is for the component in Auto-Carousel
+import Autocarousel from './Autocarousel';
 export function HomeScreen() {
   return (
     <View style={styles.container}>

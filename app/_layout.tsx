@@ -19,6 +19,10 @@ import { HomeScreen } from '@/components/HomeScreen';
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
 
+// For the global.css file for the nativewind
+import "@/global.css"
+
+
 export default function RootLayout() {
   // const colorScheme = useColorScheme();
   const [loaded] = useFonts({
