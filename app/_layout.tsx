@@ -1,26 +1,26 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+// import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
+// import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 import 'react-native-reanimated';
-import { View, AppState, AppStateStatus, Text } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AppState, AppStateStatus } from 'react-native';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as SplashScreen from 'expo-splash-screen';
 
 import { Onboarding } from '@/components/Onboarding';
 import { SignUp } from '@/components/SignUp';
 import { SignIn } from '@/components/SignIn';
 import { HomeScreen } from '@/components/HomeScreen';
-import { useColorScheme } from '@/hooks/useColorScheme';
+// import { useColorScheme } from '@/hooks/useColorScheme';
 
-const ONBOARDING_COMPLETE_KEY = 'onboarding_complete';
+// const ONBOARDING_COMPLETE_KEY = 'onboarding_complete';
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
+  // const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
     'Inter': require('../assets/fonts/Inter-Regular.ttf'),
@@ -55,6 +55,7 @@ export default function RootLayout() {
         setShowOnboarding(true);
       } catch (e) {
         // If there's an error reading from storage, show onboarding by default
+        console.error('Error reading onboarding status', e);
         setShowOnboarding(true);
       } finally {
         setAppIsReady(true);

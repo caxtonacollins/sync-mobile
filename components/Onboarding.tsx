@@ -9,7 +9,7 @@ import {
   FlatList 
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useFonts } from 'expo-font';
+// import { useFonts } from 'expo-font';
 
 const { width } = Dimensions.get('window');
 const ONBOARDING_COMPLETE_KEY = 'onboarding_complete';
