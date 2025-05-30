@@ -12,6 +12,7 @@ import { Onboarding } from '@/components/Onboarding';
 import { SignUp } from '@/components/SignUp';
 import { SignIn } from '@/components/SignIn';
 import { HomeScreen } from '@/components/HomeScreen';
+import {SecureAccount} from '@/components/SecureAccount';
 // import { useColorScheme } from '@/hooks/useColorScheme';
 
 // const ONBOARDING_COMPLETE_KEY = 'onboarding_complete';
@@ -30,6 +31,8 @@ export default function RootLayout() {
   const [showSignUp, setShowSignUp] = useState(false);
   const [showSignIn, setShowSignIn] = useState(false);
   const [appIsReady, setAppIsReady] = useState(false);
+  const [showSecure, setShowSecure] = useState(false);
+
 
   // Handle app state changes
   useEffect(() => {
@@ -151,8 +154,19 @@ export default function RootLayout() {
     );
   }
 
+  // Main app
+  if (showSecure) {
+    return (
+      <>
+        <SecureAccount />
+        <StatusBar style="light" />
+      </>
+    );
+  }
+
+
   // Main app - using HomeScreen component instead of Stack navigation
-  return (
+   return (
     <>
       <HomeScreen />
       <StatusBar style="light" />
