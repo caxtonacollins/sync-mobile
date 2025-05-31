@@ -31,7 +31,7 @@ export default function RootLayout() {
   const [showSignUp, setShowSignUp] = useState(false);
   const [showSignIn, setShowSignIn] = useState(false);
   const [appIsReady, setAppIsReady] = useState(false);
-  const [showSecure, setShowSecure] = useState(false);
+  const [showSecure, setShowSecure] = useState(true);
 
 
   // Handle app state changes

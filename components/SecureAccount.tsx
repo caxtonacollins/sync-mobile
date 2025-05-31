@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 
 export function SecureAccount() {
-    const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedOption, setSelectedOption] = useState<"biometric" | "phrase" | null>(null);
     const navigation = useNavigation();
 
   return (
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     paddingVertical: 60,
     paddingHorizontal: 20,
     flex: 1,
-    font: 'Montserrat',
+    fontFamily: 'Montserrat',
   },
   backButton: {
       flexDirection: 'row',
@@ -181,7 +181,6 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontWeight: 'bold',
     fontSize: 16,
-    font: 'Montserrat',
   },
   secondaryButton: {
     alignItems: 'center',
@@ -193,7 +192,6 @@ const styles = StyleSheet.create({
   secondaryButtonText: {
     color: '#FFFFFF',
     fontWeight: 'bold',
-    font: 'Montserrat',
     fontSize: 16,
   },
   footerNote: {
