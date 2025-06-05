@@ -71,6 +71,10 @@ const OnboardingItem = ({ item, currentIndex, index }: { item: OnboardingItemPro
   );
 };
 
+
+
+
+// THIS IS THE MAIN FUNCTION FOR THE MAIN RETURN OF THE CODE
 export function Onboarding({ onComplete, onSignUp, onSignIn }: OnboardingProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const flatListRef = useRef<FlatList>(null);
@@ -110,8 +114,26 @@ export function Onboarding({ onComplete, onSignUp, onSignIn }: OnboardingProps) 
     setCurrentIndex(currentIndex);
   };
 
+  
+      React.useEffect(() => {
+        const interval = setInterval(() => {
+          if (flatListRef.current) {
+            if (currentIndex  < onboardingData.length - 1) {
+              setCurrentIndex(prevIndex => prevIndex + 1);
+              flatListRef.current?.scrollToIndex({ index: currentIndex + 1, animated: true})
+            } else {
+              clearInterval(interval);
+            }
+          }
+
+          return () => clearInterval(interval);
+
+      }, 2000); // Auto-scroll every 3 seconds
+
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, [currentIndex]);
   return (
-    <View style={styles.container}>
+    <View className={`flex flex-1 bg-${'#0E1032'}`}>
       <FlatList
         ref={flatListRef}
         data={onboardingData}
@@ -125,8 +147,8 @@ export function Onboarding({ onComplete, onSignUp, onSignIn }: OnboardingProps) 
 
       {currentIndex === onboardingData.length - 1 ? (
         // Last screen - show sign up and sign in buttons
-        <View style={styles.authButtonContainer}>
-          <TouchableOpacity style={styles.signUpButton} onPress={onSignUp}>
+        <View style={styles.authButtonContainer} className='max-w-full'>
+          <TouchableOpacity  style={styles.signUpButton} onPress={onSignUp}>
             <Text style={styles.nextText}>Create An Account</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.signInButton} onPress={onSignIn}>
@@ -220,7 +242,6 @@ const styles = StyleSheet.create({
   authButtonContainer: {
     paddingHorizontal: 20,
     marginBottom: 40,
-    width: '100%',
   },
   signUpButton: {
     backgroundColor: '#2D52EC',
