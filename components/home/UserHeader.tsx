@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { View, Text, Image } from 'react-native';
 
 interface UserHeaderProps {
   name: string;

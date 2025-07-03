@@ -2,13 +2,13 @@ import React from 'react';
 import { SafeAreaView, ScrollView, View, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-import { UserHeader } from './home/UserHeader';
-import { BalanceCard } from './home/BalanceCard';
-import { ActionButton } from './home/ActionButton';
-import { ExchangeRateCard } from './home/ExchangeRateCard';
-import { TransactionItem } from './home/TransactionItem';
+import { UserHeader } from '../../components/home/UserHeader';
+import { BalanceCard } from '../../components/home/BalanceCard';
+import { ActionButton } from '../../components/home/ActionButton';
+import { ExchangeRateCard } from '../../components/home/ExchangeRateCard';
+import { TransactionItem } from '../../components/home/TransactionItem';
 
-export function HomeScreen() {
+const HomeScreen = () => {
   const transactions = [
     {
       id: '#2934359w9432',
@@ -72,3 +72,5 @@ export function HomeScreen() {
     </SafeAreaView>
   );
 }
+
+export default HomeScreen;

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { 
-  StyleSheet, 
-  View, 
-  Text, 
-  TextInput, 
+import {
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
   TouchableOpacity,
   ScrollView,
   KeyboardAvoidingView,
@@ -11,25 +11,35 @@ import {
   Image
 } from 'react-native';
 import { BackButton } from './BackButton';
+import { useRouter } from 'expo-router';
 
-interface SignInProps {
-  onBack: () => void;
-  onSignUp: () => void;
-  onSignIn: () => void;
-}
+export function SignIn() {
+  const router = useRouter();
 
-export function SignIn({ onBack, onSignUp, onSignIn }: SignInProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
 
+  const onSignUp = () => {
+
+  }
+
+  const onSignIn = () => {
+    router.push('/(tabs)');
+  }
+
+  const onBack = () => {
+    router.back();
+
+  }
+
   return (
-    <KeyboardAvoidingView 
+    <KeyboardAvoidingView
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <BackButton onPress={onBack} />
-      
+
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <View style={styles.header}>
           <Text style={styles.title}>Login</Text>
@@ -63,8 +73,8 @@ export function SignIn({ onBack, onSignUp, onSignIn }: SignInProps) {
           </View>
 
           <View style={styles.rememberContainer}>
-            <TouchableOpacity 
-              style={styles.checkbox} 
+            <TouchableOpacity
+              style={styles.checkbox}
               onPress={() => setRememberMe(!rememberMe)}
             >
               {rememberMe && <View style={styles.checkboxInner} />}
@@ -72,8 +82,8 @@ export function SignIn({ onBack, onSignUp, onSignIn }: SignInProps) {
             <Text style={styles.rememberText}>Keep me logged in</Text>
           </View>
 
-          <TouchableOpacity 
-            style={styles.signInButton} 
+          <TouchableOpacity
+            style={styles.signInButton}
             onPress={onSignIn}
           >
             <Text style={styles.signInButtonText}>Login</Text>
@@ -86,17 +96,17 @@ export function SignIn({ onBack, onSignUp, onSignIn }: SignInProps) {
           </View>
 
           <TouchableOpacity style={styles.socialButton}>
-            <Image 
-              source={require('../assets/images/google-icon.png')} 
-              style={styles.socialIcon} 
+            <Image
+              source={require('../assets/images/google-icon.png')}
+              style={styles.socialIcon}
             />
             <Text style={styles.socialButtonText}>Continue with Google</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.socialButton}>
-            <Image 
-              source={require('../assets/images/x.png')} 
-              style={styles.socialIcon} 
+            <Image
+              source={require('../assets/images/x.png')}
+              style={styles.socialIcon}
             />
             <Text style={styles.socialButtonText}>Continue with X</Text>
           </TouchableOpacity>

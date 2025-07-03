@@ -11,18 +11,27 @@ import {
   Image
 } from 'react-native';
 import { BackButton } from './BackButton';
+import { useRouter } from 'expo-router';
 
-interface SignUpProps {
-  onBack: () => void;
-  onSignIn: () => void;
-  onSignUp: () => void;
-}
+export function SignUp() {
+  const router = useRouter();
 
-export function SignUp({ onBack, onSignIn, onSignUp }: SignUpProps) {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [agreeToTerms, setAgreeToTerms] = useState(false);
+
+  const onBack = () => {
+    router.back();
+  }
+
+  const onSignIn = () => {
+    
+  }
+
+  const onSignUp = () => {
+    
+  }
 
   return (
     <KeyboardAvoidingView 

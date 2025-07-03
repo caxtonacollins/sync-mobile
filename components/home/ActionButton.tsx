@@ -14,7 +14,7 @@ export const ActionButton: React.FC<ActionButtonProps> = ({ icon, label, onPress
   return (
     <TouchableOpacity
       onPress={onPress}
-      className="bg-[#13163B] items-center justify-center w-20 h-16 rounded-xl m-1"
+      className="bg-[#13163B] border border-gray-800 items-center justify-center w-20 h-16 rounded-xl m-1"
       activeOpacity={0.7}
     >
       <Ionicons name={icon} size={20} color="white" />

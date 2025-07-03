@@ -5,9 +5,10 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 interface SecureAccountProps {
   onRemindLater: () => void;
   onBack: () => void;
+  onSecure: () => void;
 }
 
-export function SecureAccount({ onRemindLater, onBack }: SecureAccountProps) {
+export function SecureAccount({ onRemindLater, onBack, onSecure }: SecureAccountProps) {
   const [selectedOption, setSelectedOption] = useState<"biometric" | "phrase" | null>(null);
 
   return (
@@ -59,7 +60,7 @@ export function SecureAccount({ onRemindLater, onBack }: SecureAccountProps) {
       </TouchableOpacity>
 
       <View style={styles.option}>
-        <TouchableOpacity style={styles.primaryButton}>
+              <TouchableOpacity style={styles.primaryButton} onPress={onSecure}>
           <Text style={styles.primaryButtonText}>Secure account now</Text>
         </TouchableOpacity>
       </View>
