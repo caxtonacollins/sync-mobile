@@ -1,26 +1,30 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 
-export function SecureAccount() {
-    const [selectedOption, setSelectedOption] = useState<"biometric" | "phrase" | null>(null);
-    const navigation = useNavigation();
+interface SecureAccountProps {
+  onRemindLater: () => void;
+  onBack: () => void;
+  onSecure: () => void;
+}
+
+export function SecureAccount({ onRemindLater, onBack, onSecure }: SecureAccountProps) {
+  const [selectedOption, setSelectedOption] = useState<"biometric" | "phrase" | null>(null);
 
   return (
     <ScrollView style={styles.container}>
-    <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-          <View style={styles.iconContainer}>
-            <AntDesign name="left" size={16} color="#DEDEFF" />
-          </View>
-          <Text style={styles.backText}>Back</Text>
-     </TouchableOpacity>
+      <TouchableOpacity style={styles.backButton} onPress={onBack}>
+        <View style={styles.iconContainer}>
+          <AntDesign name="left" size={16} color="#DEDEFF" />
+        </View>
+        <Text style={styles.backText}>Back</Text>
+      </TouchableOpacity>
 
       <View style={styles.headline}>
-            <Text style={styles.title}>Secure your account</Text>
-            <Text style={styles.description}>
-                Add another layer to secure your KryptoSync account.
-            </Text>
+        <Text style={styles.title}>Secure your account</Text>
+        <Text style={styles.description}>
+          Add another layer to secure your KryptoSync account.
+        </Text>
       </View>
 
       <Text style={styles.body}>
@@ -32,7 +36,7 @@ export function SecureAccount() {
         onPress={() => setSelectedOption('biometric')}
       >
         <View style={styles.selectIndicator}>
-           <View style={selectedOption === 'biometric' ? styles.selectedInner : styles.innerCircle} />
+          <View style={selectedOption === 'biometric' ? styles.selectedInner : styles.innerCircle} />
         </View>
         <View>
           <Text style={styles.optionTitle}>Secure my account using biometrics</Text>
@@ -45,7 +49,7 @@ export function SecureAccount() {
         onPress={() => setSelectedOption('phrase')}
       >
         <View style={styles.selectIndicator}>
-           <View style={selectedOption === 'phrase' ? styles.selectedInner : styles.innerCircle} />
+          <View style={selectedOption === 'phrase' ? styles.selectedInner : styles.innerCircle} />
         </View>
         <View>
           <Text style={styles.optionTitle}>Secure my account using secret phrase</Text>
@@ -55,16 +59,16 @@ export function SecureAccount() {
         </View>
       </TouchableOpacity>
 
-       <View style={styles.option}>
-      <TouchableOpacity style={styles.primaryButton}>
-        <Text style={styles.primaryButtonText}>Secure account now</Text>
-      </TouchableOpacity>
+      <View style={styles.option}>
+              <TouchableOpacity style={styles.primaryButton} onPress={onSecure}>
+          <Text style={styles.primaryButtonText}>Secure account now</Text>
+        </TouchableOpacity>
       </View>
 
-       <View style={styles.option}>
-      <TouchableOpacity style={styles.secondaryButton}>
-        <Text style={styles.secondaryButtonText}>Remind me later</Text>
-      </TouchableOpacity>
+      <View style={styles.option}>
+        <TouchableOpacity style={styles.secondaryButton} onPress={onRemindLater}>
+          <Text style={styles.secondaryButtonText}>Remind me later</Text>
+        </TouchableOpacity>
       </View>
 
       <Text style={styles.footerNote}>We highly recommend securing your account</Text>
@@ -81,25 +85,25 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat',
   },
   backButton: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      gap: 8,
-      marginBottom: 20
-    },
-   iconContainer: {
-      backgroundColor: '#1A1A41',
-      borderRadius: 90,
-      justifyContent: 'center',
-      alignItems: 'center',
-      padding: 12
-    },
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginBottom: 20
+  },
+  iconContainer: {
+    backgroundColor: '#1A1A41',
+    borderRadius: 90,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 12
+  },
   backText: {
     color: '#FFFFFF',
     fontSize: 16,
   },
   headline: {
-      flexDirection: "column",
-      gap: 0
+    flexDirection: "column",
+    gap: 0
   },
   title: {
     fontSize: 30,
@@ -122,39 +126,39 @@ const styles = StyleSheet.create({
     fontWeight: 'bold', // optional, if you want it to stand out more
   },
   selectIndicator: {
-      borderRadius: 100,
-      backgroundColor: '#0E1032',
-      height: 40,
-      width: 40,
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center'
+    borderRadius: 100,
+    backgroundColor: '#0E1032',
+    height: 40,
+    width: 40,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   innerCircle: {
-        borderRadius: 100,
-        borderWidth: 2,
-        height: 25,
-        width: 25,
-        borderColor: '#9693A8',
-    },
+    borderRadius: 100,
+    borderWidth: 2,
+    height: 25,
+    width: 25,
+    borderColor: '#9693A8',
+  },
   selectedInner: {
-      borderRadius: 100,
-      borderWidth: 2,
-      height: 25,
-      width: 25,
-      borderColor: '#9693A8',
-      backgroundColor: '#2D52EC'
+    borderRadius: 100,
+    borderWidth: 2,
+    height: 25,
+    width: 25,
+    borderColor: '#9693A8',
+    backgroundColor: '#2D52EC'
   },
   optionContainer: {
-      backgroundColor: '#1A1A41',
-      borderColor: '#2D52EC',
-      marginBottom: 20,
-      paddingHorizontal: 12,
-      paddingVertical: 10,
-      borderWidth: 0.5,
-      borderRadius: 7,
-      flexDirection: 'row',
-      gap: 10
+    backgroundColor: '#1A1A41',
+    borderColor: '#2D52EC',
+    marginBottom: 20,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    borderWidth: 0.5,
+    borderRadius: 7,
+    flexDirection: 'row',
+    gap: 10
   },
   option: {
     marginBottom: 25,

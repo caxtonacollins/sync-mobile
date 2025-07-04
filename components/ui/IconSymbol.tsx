@@ -13,6 +13,9 @@ const MAPPING = {
   'paperplane.fill': 'send',
   'chevron.left.forwardslash.chevron.right': 'code',
   'chevron.right': 'chevron-right',
+  'dollarsign.circle.fill': 'paid',
+  'coloncurrencysign.circle.fill': 'monetization-on',
+  'star.fill': 'star',
 } as Partial<
   Record<
     import('expo-symbols').SymbolViewProps['name'],
