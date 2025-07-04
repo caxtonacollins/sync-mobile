@@ -8,14 +8,17 @@ import {
 } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
 import { MaterialIcons } from '@expo/vector-icons';
-import { IconSymbol } from '../ui/IconSymbol';
+import USDIcon from '../../assets/icons/usd.svg';
+import StarknetIcon from '../../assets/icons/starknet.svg';
+import EthereumIcon from '../../assets/icons/ethereum-crypto-cryptocurrency.svg';
+import ArrowDown from '../../assets/icons/Expand_down_light.svg'
 
 // Dummy data for the chart
 const chartData = {
-  labels: ['1H', '1D', '1W', '1M', '1Y', 'All'],
+  labels: ['1H', '1D', '1W', '1M', '1Y', '1H', '1D', '1W', '1M', '1Y', 'All'],
   datasets: [
     {
-      data: [1800, 2100, 2000, 2400, 2300, 2800],
+      data: [1800, 2100, 2000, 2400, 2300, 2800, 2900, 2700, 2600, 2500, 2400,],
       color: (opacity = 1) => `rgba(45, 82, 236, ${opacity})`,
       strokeWidth: 4,
     },
@@ -24,13 +27,13 @@ const chartData = {
 
 
 export const ExchangeRateCard = () => {
-  const screenWidth = Dimensions.get('window').width - 20;
+  const screenWidth = Dimensions.get('window').width;
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const [selectedCurrency, setSelectedCurrency] = useState('USD');
+  const [selectedCurrency, setSelectedCurrency] = useState('Starks');
   const currencies = [
-    { name: 'USD', icon: 'dollarsign.circle.fill' },
-    { name: 'Starks', icon: 'star.fill' },
-    { name: 'ETH', icon: 'coloncurrencysign.circle.fill' },
+    { name: 'USD', icon: USDIcon },
+    { name: 'Starks', icon: StarknetIcon },
+    { name: 'ETH', icon: EthereumIcon },
   ];
 
   const handleCurrencyChange = (currency: any) => {
@@ -40,7 +43,7 @@ export const ExchangeRateCard = () => {
 
 
   return (
-    <View style={styles.cardContainer} className="border border-gray-800">
+    <View style={styles.cardContainer} className="border border-[#9693a873]">
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Exchange Rate</Text>
         <View>
@@ -48,16 +51,17 @@ export const ExchangeRateCard = () => {
             style={styles.dropdownButton}
             onPress={() => setDropdownOpen(!isDropdownOpen)}
           >
-            <IconSymbol
-              name={
-                currencies.find((c) => c.name === selectedCurrency)?.icon as any
+            {(() => {
+              const SelectedIcon = currencies.find(
+                (c) => c.name === selectedCurrency
+              )?.icon;
+              if (SelectedIcon) {
+                return React.createElement(SelectedIcon, { width: 20, height: 20, style: { marginRight: 8 } });
               }
-              size={22}
-              color="white"
-              style={{ marginRight: 8 }}
-            />
+              return null;
+            })()}
             <Text style={styles.dropdownButtonText}>{selectedCurrency}</Text>
-            <MaterialIcons name="arrow-drop-down" size={22} color="gray" />
+            <ArrowDown width={22} height={22} color="gray" />
           </TouchableOpacity>
           {isDropdownOpen && (
             <View style={styles.dropdownMenu}>
@@ -67,12 +71,7 @@ export const ExchangeRateCard = () => {
                   onPress={() => handleCurrencyChange(currency)}
                   style={styles.dropdownItem}
                 >
-                  <IconSymbol
-                    name={currency.icon as any}
-                    size={22}
-                    color="gray"
-                    style={{ marginRight: 8 }}
-                  />
+                  {React.createElement(currency.icon, { width: 24, height: 24, style: { marginRight: 8 } })}
                   <Text style={styles.dropdownItemText}>{currency.name}</Text>
                 </TouchableOpacity>
               ))}
@@ -84,16 +83,13 @@ export const ExchangeRateCard = () => {
       <View style={{ alignItems: 'center' }}>
         <LineChart
           data={chartData}
-          width={screenWidth - 20}
+          width={screenWidth + 40}
           height={180}
           withShadow
           withInnerLines={false}
           withOuterLines={false}
-          // withVerticalLabels={false}
-          // yAxisLabel="$"
-          // yAxisSuffix="k"
           withHorizontalLabels={false}
-          yAxisInterval={1} // optional, defaults to 1
+          yAxisInterval={1}
           chartConfig={{
             backgroundGradientFrom: '#13163B',
             backgroundGradientTo: '#13163B',
@@ -113,30 +109,11 @@ export const ExchangeRateCard = () => {
           style={{
             marginVertical: 0,
             borderRadius: 16,
-            // overflow: 'hidden',
             marginLeft: 0,
             padding: 0,
           }}
         />
       </View>
-
-      {/* <View style={styles.timeRangeContainer}>
-        {chartData.labels.map((range) => (
-          <TouchableOpacity
-            key={range}
-            onPress={() => setActiveRange(range)}
-          >
-            <Text
-              style={[
-                styles.timeRangeText,
-                activeRange === range && styles.activeTimeRangeText,
-              ]}
-            >
-              {range}
-            </Text>
-          </TouchableOpacity>
-        ))}
-      </View> */}
     </View>
   );
 };
@@ -171,7 +148,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   dropdownButtonText: {
-    color: 'gray',
+    color: 'white',
     marginRight: 4,
     fontWeight: '500',
   },

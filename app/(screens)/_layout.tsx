@@ -6,11 +6,9 @@ SplashScreen.preventAutoHideAsync();
 export default function ScreenLayout() {
 
     return (
-        <View style={{ flex: 1 }}>
-            <Stack>
-                <Stack.Screen name="signin" options={{ headerShown: false }} />
-                <Stack.Screen name="signup" options={{ headerShown: false }} />
-            </Stack>
-        </View>
+        <Stack>
+            <Stack.Screen name="signin" options={{ headerShown: false }} />
+            <Stack.Screen name="signup" options={{ headerShown: false }} />
+        </Stack>
     );
 }

@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
-// import { useFonts } from 'expo-font';
 
 const { width } = Dimensions.get('window');
 const ONBOARDING_COMPLETE_KEY = 'onboarding_complete';

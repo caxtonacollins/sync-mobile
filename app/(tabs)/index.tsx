@@ -1,12 +1,16 @@
 import React from 'react';
 import { SafeAreaView, ScrollView, View, Text } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 
 import { UserHeader } from '../../components/home/UserHeader';
 import { BalanceCard } from '../../components/home/BalanceCard';
 import { ActionButton } from '../../components/home/ActionButton';
 import { ExchangeRateCard } from '../../components/home/ExchangeRateCard';
 import { TransactionItem } from '../../components/home/TransactionItem';
+import TXIcon from '../../assets/icons/txicon.svg';
+import PlusIcon from '../../assets/icons/plus.svg';
+import SwapIcon from '../../assets/icons/Horizontal_switch_light.svg';
+import ReceiveIcon from '../../assets/icons/In_light.svg';
+import ProfileIcon from '../../assets/images/profile_image.png';
 
 const HomeScreen = () => {
   const transactions = [
@@ -32,7 +36,7 @@ const HomeScreen = () => {
         <UserHeader
           name="Elijah Okumar"
           email="Hello@elijah.com"
-          avatarUrl="https://randomuser.me/api/portraits/men/1.jpg"
+          avatarUrl={ProfileIcon}
         />
 
         {/* Balance Cards */}
@@ -43,9 +47,9 @@ const HomeScreen = () => {
 
         {/* Quick Action Buttons */}
         <View className="flex-row justify-between my-4">
-          <ActionButton icon="add" label="Add" />
-          <ActionButton icon="swap-horizontal" label="Swap" />
-          <ActionButton icon="download" label="Receive" />
+          <ActionButton icon={PlusIcon} label="Add" />
+          <ActionButton icon={SwapIcon} label="Swap" />
+          <ActionButton icon={ReceiveIcon} label="Receive" />
         </View>
 
         {/* Exchange Rate */}
@@ -54,7 +58,7 @@ const HomeScreen = () => {
         {/* Transaction History Header */}
         <View className="flex-row items-center justify-between mb-2">
           <Text className="text-white font-semibold">Transaction History</Text>
-          <Ionicons name="arrow-down" size={18} color="white" />
+          <TXIcon width={32} height={32} fill="#FFFFFF" />
         </View>
 
         {/* Transaction Items */}

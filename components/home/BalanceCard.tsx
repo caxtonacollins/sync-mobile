@@ -12,7 +12,7 @@ interface BalanceCardProps {
 
 export const BalanceCard: React.FC<BalanceCardProps> = ({ label, balance, percentageChange, iconName, onPress }) => {
   return (
-    <View className="bg-[#13163B] flex-1 rounded-xl p-4 m-1 border border-gray-800" style={{ minWidth: '48%' }}>
+    <View className="bg-[#13163B] flex-1 rounded-xl p-4 m-1 border border-[#9693a873]" style={{ minWidth: '48%' }}>
       <View className="flex-row items-center justify-between">
         <View className="flex-row items-center">
           <Text className="text-xs text-gray-400 mr-1">{label}</Text>
